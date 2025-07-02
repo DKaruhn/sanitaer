@@ -60,6 +60,67 @@
   </div>
 </section>
 
+<!-- GOOGLE BEWERTUNGEN -->
+<section class="google-reviews section-container">
+  <h2>Was unsere Kunden sagen</h2>
+
+  <div class="reviews-grid">
+    <div class="review-card" *ngFor="let review of googleReviews" (clickOutside)="closeReviewDialog()">
+      <div class="review-header">
+        <div class="review-avatar">{{ review.name.charAt(0) }}</div>
+        <div>
+          <strong>{{ review.name }}</strong>
+          <div class="stars">
+            <i class="pi pi-star-fill" *ngFor="let star of [1,2,3,4,5]"></i>
+          </div>
+        </div>
+      </div>
+      <p class="review-text">
+        {{ review.text | slice:0:180 }}{{ review.text.length > 180 ? '...' : '' }}
+      </p>
+      <button
+        class="mehr-button"
+        (click)="openReviewDialog(review)"
+        *ngIf="review.text.length > 180"
+      >
+        Mehr
+      </button>
+    </div>
+  </div>
+
+  <div class="review-button-wrapper">
+    <a
+      class="bewerten-button"
+      href="https://search.google.com/local/writereview?placeid=ChIJ7doJUBwxt08RXVPHqIvOhYg"
+      target="_blank"
+      rel="noopener"
+    >
+      Jetzt bewerten
+    </a>
+  </div>
+
+  <!-- Review-Dialog -->
+  <p-dialog
+    header="{{ selectedReview?.name }}"
+    [(visible)]="reviewDialogVisible"
+    [modal]="true"
+    [style]="{ width: '450px' }"
+    (onHide)="closeReviewDialog()"
+    [dismissableMask]="true"
+  >
+    <div class="review-popup">
+      <div class="review-avatar-large">{{ selectedReview?.name.charAt(0) }}</div>
+      <div class="stars stars-large">
+        <i class="pi pi-star-fill" *ngFor="let star of [1,2,3,4,5]"></i>
+      </div>
+      <p class="full-review-text">{{ selectedReview?.text }}</p>
+    </div>
+  </p-dialog>
+</section>
+
+
+
+
 <!-- TERMIN-DIALOG -->
 <p-dialog
   header="Termin vereinbaren"
