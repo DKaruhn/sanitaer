@@ -9,4 +9,6 @@ import { RouterModule } from '@angular/router';
   styleUrls: ['./navbar.component.css'],
   imports: [CommonModule, RouterModule]
 })
-export class NavbarComponent {}
+export class NavbarComponent {
+  menuOpen = false;
+}

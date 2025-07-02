@@ -1,17 +1,32 @@
+<!-- responsive-navbar.component.html -->
 <nav class="navbar">
   <div class="navbar-container">
-    <!-- Logo ohne Text -->
+    <!-- Logo -->
     <a routerLink="/" class="navbar-logo">
       <img src="assets/logo-with-txt.png" alt="V. Kortschak Logo" />
     </a>
 
-    <!-- Navigation -->
-    <ul class="navbar-links">
+    <!-- Desktop-Navigation -->
+    <ul class="navbar-links desktop-only">
       <li><a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a></li>
       <li><a routerLink="/ueber-uns" routerLinkActive="active">Über uns</a></li>
       <li><a routerLink="/leistungen" routerLinkActive="active">Leistungen</a></li>
       <li><a routerLink="/referenzen" routerLinkActive="active">Referenzen</a></li>
       <li><a routerLink="/kontakt" routerLinkActive="active">Kontakt</a></li>
     </ul>
+
+    <!-- Mobile Toggle Button -->
+    <button class="mobile-toggle" (click)="menuOpen = !menuOpen">
+      <i class="pi pi-bars"></i>
+    </button>
   </div>
+
+  <!-- Mobile Menü -->
+  <ul class="mobile-menu" *ngIf="menuOpen">
+    <li><a routerLink="/" (click)="menuOpen = false">Home</a></li>
+    <li><a routerLink="/ueber-uns" (click)="menuOpen = false">Über uns</a></li>
+    <li><a routerLink="/leistungen" (click)="menuOpen = false">Leistungen</a></li>
+    <li><a routerLink="/referenzen" (click)="menuOpen = false">Referenzen</a></li>
+    <li><a routerLink="/kontakt" (click)="menuOpen = false">Kontakt</a></li>
+  </ul>
 </nav>
