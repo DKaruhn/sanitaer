@@ -30,11 +30,11 @@ import { MessageService } from 'primeng/api';
 })
 export class HomeComponent {
   heroImages = [
-    '/assets/hero/hero-0.jpg',
-    '/assets/hero/hero-1.jpg',
-    '/assets/hero/hero-2.jpg',
-    '/assets/hero/hero-3.jpg',
-    '/assets/hero/hero-4.jpg'
+    'assets/hero/hero-0.jpg',
+    'assets/hero/hero-1.jpg',
+    'assets/hero/hero-2.jpg',
+    'assets/hero/hero-3.jpg',
+    'assets/hero/hero-4.jpg'
   ];
 
   currentImageIndex = 0;
