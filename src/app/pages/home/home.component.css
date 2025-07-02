@@ -370,3 +370,35 @@
   box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
 }
 
+/* ========== RESPONSIVE DIALOG STYLES ========== */
+
+:host ::ng-deep .booking-dialog {
+  width: 460px;
+  max-width: 95vw;
+}
+
+@media (max-width: 600px) {
+  ::ng-deep .p-dialog {
+    width: 90% !important;
+    max-width: 90% !important;
+  }
+
+  ::ng-deep .p-dialog .p-dialog-content {
+    padding: 1rem !important;
+  }
+}
+
+/* ====== FIX: Checkbox-Grid für Mobile ====== */
+@media (max-width: 600px) {
+  :host ::ng-deep .checkbox-grid {
+    grid-template-columns: 1fr !important;
+    gap: 0.8rem !important;
+  }
+
+  :host ::ng-deep .checkbox-grid label {
+    display: inline-block;
+    margin-left: 0.5rem;
+    font-size: 0.95rem;
+  }
+}
+

@@ -1,4 +1,3 @@
-/* responsive-navbar.component.css */
 :host {
   display: block;
 }
@@ -18,6 +17,14 @@
   align-items: center;
   max-width: 1200px;
   margin: 0 auto;
+  flex-wrap: nowrap;
+}
+
+/* === LOGO === */
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
 }
 
 .navbar-logo img {
@@ -26,7 +33,7 @@
   filter: drop-shadow(0px 0px 12px rgba(255, 255, 255, 0.2));
 }
 
-/* Desktop Navigation */
+/* === DESKTOP NAVIGATION === */
 .navbar-links {
   display: flex;
   gap: 2rem;
@@ -47,16 +54,18 @@
   color: var(--secondary-color);
 }
 
-/* Mobile Toggle Button */
+/* === MOBILE TOGGLE === */
 .mobile-toggle {
   display: none;
   background: none;
   border: none;
   color: white;
   font-size: 1.8rem;
+  margin-left: auto;
+  z-index: 999;
 }
 
-/* Mobile Menü */
+/* === MOBILE MENU === */
 .mobile-menu {
   list-style: none;
   padding: 0;
@@ -75,7 +84,7 @@
   font-weight: 500;
 }
 
-/* Responsive Breakpoint */
+/* === RESPONSIVE BREAKPOINTS === */
 @media (max-width: 768px) {
   .desktop-only {
     display: none;
@@ -86,7 +95,7 @@
   }
 
   .navbar-container {
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
   }
 
   .navbar-logo img {

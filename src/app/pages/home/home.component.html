@@ -119,16 +119,17 @@
 </section>
 
 
-
-
 <!-- TERMIN-DIALOG -->
 <p-dialog
   header="Termin vereinbaren"
   [(visible)]="bookingDialogVisible"
   [modal]="true"
   [closable]="true"
+  [responsive]="true"
   [style]="{ width: '460px' }"
+  [breakpoints]="{ '960px': '90vw', '640px': '95vw' }"
 >
+
   <div class="p-fluid" style="display: flex; flex-direction: column; gap: 1.2rem;">
 
     <div class="p-field">
