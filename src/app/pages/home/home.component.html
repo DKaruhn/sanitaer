@@ -1,0 +1,143 @@
+<!-- TOAST -->
+<p-toast></p-toast>
+
+<!-- HERO -->
+<section class="hero-container">
+  <div
+    class="hero-slide"
+    *ngFor="let img of heroImages; let i = index"
+    [ngClass]="{ active: i === currentImageIndex }"
+  >
+    <div class="hero-bg" [style.backgroundImage]="'url(' + img + ')'"></div>
+    <div class="hero-overlay">
+      <h1>Ihr Spezialist für Heizung · Sanitär · Klima</h1>
+      <p>Kompetenz, Zuverlässigkeit & Qualität – seit über 20 Jahren</p>
+      <button
+        pButton
+        label="Jetzt Termin vereinbaren"
+        icon="pi pi-calendar-plus"
+        class="p-button-lg p-button-rounded p-button-secondary"
+        (click)="bookingDialogVisible = true"
+      ></button>
+    </div>
+  </div>
+</section>
+
+<!-- LEISTUNGEN -->
+<section class="leistungen section-container">
+  <h2>Unsere Leistungen</h2>
+  <div class="card-grid">
+    <p-card header="Heizung" styleClass="colored-card heating">
+      <ng-template pTemplate="content">
+        <p>Wärmepumpen, Gasheizung, Fußbodenheizung – effizient & modern.</p>
+      </ng-template>
+    </p-card>
+    <p-card header="Sanitär" styleClass="colored-card sanitation">
+      <ng-template pTemplate="content">
+        <p>Komplettbäder, barrierefreie Lösungen, Altbausanierung.</p>
+      </ng-template>
+    </p-card>
+    <p-card header="Klima" styleClass="colored-card climate">
+      <ng-template pTemplate="content">
+        <p>Split- & Multisplitanlagen, Raumklimalösungen, Lüftungssysteme.</p>
+      </ng-template>
+    </p-card>
+  </div>
+</section>
+
+<!-- VORTEILE -->
+<section class="vorteile section-container">
+  <div class="vorteile-grid">
+    <div class="vorteil-text">
+      <h2>Warum V. Kortschak?</h2>
+      <ul>
+        <li><i class="pi pi-users"></i> Persönliche Beratung vom Meisterbetrieb</li>
+        <li><i class="pi pi-cog"></i> Planung, Montage & Wartung – alles aus einer Hand</li>
+        <li><i class="pi pi-phone"></i> Schneller Kundenservice & Notdienst</li>
+      </ul>
+    </div>
+    <img src="/assets/team.jpg" alt="Unser Team" class="vorteil-image" />
+  </div>
+</section>
+
+<!-- TERMIN-DIALOG -->
+<p-dialog
+  header="Termin vereinbaren"
+  [(visible)]="bookingDialogVisible"
+  [modal]="true"
+  [closable]="true"
+  [style]="{ width: '460px' }"
+>
+  <div class="p-fluid" style="display: flex; flex-direction: column; gap: 1.2rem;">
+
+    <div class="p-field">
+      <label for="name">Ihr Name</label>
+      <input
+        id="name"
+        type="text"
+        pInputText
+        [(ngModel)]="appointmentName"
+        placeholder="Max Mustermann"
+      />
+    </div>
+
+    <div class="p-field">
+      <label for="date">Wunschtermin</label>
+      <p-calendar
+        id="date"
+        [(ngModel)]="appointmentDate"
+        dateFormat="dd.mm.yy"
+        [showIcon]="true"
+        appendTo="body"
+      ></p-calendar>
+    </div>
+
+    <div class="p-field">
+      <label for="address">Einsatzort / Adresse</label>
+      <input
+        id="address"
+        type="text"
+        pInputText
+        [(ngModel)]="address"
+        placeholder="Straße, PLZ Ort"
+      />
+    </div>
+
+    <div class="p-field">
+      <label>Worum geht es?</label>
+      <div
+        class="checkbox-grid"
+        style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.5rem 1rem;"
+      >
+        <div *ngFor="let service of services">
+          <p-checkbox
+            [value]="service.value"
+            [(ngModel)]="selectedServices"
+            inputId="{{ service.value }}"
+          ></p-checkbox>
+          <label [for]="service.value" style="margin-left: 0.5rem;">{{ service.label }}</label>
+        </div>
+      </div>
+    </div>
+
+    <div class="p-field" *ngIf="selectedServices.includes('Sonstiges')">
+      <label for="customService">Sonstiges</label>
+      <input
+        id="customService"
+        type="text"
+        pInputText
+        [(ngModel)]="customServiceText"
+        placeholder="Anliegen eingeben..."
+      />
+    </div>
+
+    <button
+      pButton
+      type="button"
+      label="Termin bestätigen"
+      class="p-button-success"
+      style="margin-top: 0.5rem;"
+      (click)="confirmAppointment()"
+    ></button>
+  </div>
+</p-dialog>

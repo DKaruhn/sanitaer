@@ -1,0 +1,189 @@
+/* === HOME STYLES (Scoped) === */
+:host {
+  display: block;
+}
+
+/* === HERO SECTION === */
+:host ::ng-deep .hero-container {
+  position: relative;
+  height: 520px;
+  overflow: hidden;
+}
+
+:host ::ng-deep .hero-slide {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 1.5s ease-in-out;
+}
+
+:host ::ng-deep .hero-slide.active {
+  opacity: 1;
+  z-index: 1;
+}
+
+:host ::ng-deep .hero-bg {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  animation: slow-pan 18s infinite alternate;
+  transform: scale(1.05);
+  z-index: 0;
+}
+
+@keyframes slow-pan {
+  0% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1.1);
+  }
+}
+
+:host ::ng-deep .hero-overlay {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 51, 102, 0.65);
+  padding: 2rem 2.5rem;
+  text-align: center;
+  border-radius: 16px;
+  width: 85%;
+  max-width: 700px;
+  z-index: 2;
+  box-shadow: var(--hover-shadow);
+  backdrop-filter: blur(3px);
+  color: white;
+}
+
+:host ::ng-deep .hero-overlay h1 {
+  font-size: 2.4rem;
+  margin-bottom: 1rem;
+  line-height: 1.3;
+  color: #ffffff;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.6);
+}
+
+:host ::ng-deep .hero-overlay p {
+  font-size: 1.2rem;
+  margin-bottom: 1.8rem;
+  color: #e0f4ff;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+:host ::ng-deep .hero-overlay .p-button {
+  font-size: 1rem;
+  padding: 0.75rem 2rem;
+  border-radius: 50px;
+  font-weight: 600;
+}
+
+
+/* === LEISTUNGEN SECTION === */
+:host ::ng-deep .leistungen {
+  text-align: center;
+  padding: 4rem 2rem;
+  background: linear-gradient(to bottom right, #f2f8fd, #e2f1ff);
+}
+
+:host ::ng-deep .leistungen h2 {
+  font-size: 2.3rem;
+  margin-bottom: 2.5rem;
+  color: var(--text-dark);
+}
+
+:host ::ng-deep .card-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+:host ::ng-deep .colored-card {
+  color: #ffffff;
+  border: none;
+  width: 320px;
+  min-height: 220px;
+  padding: 1.5rem;
+  font-size: 1.1rem;
+  box-shadow: var(--shadow);
+  border-radius: var(--card-radius);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4);
+}
+
+:host ::ng-deep .colored-card p {
+  font-size: 1.15rem;
+  font-weight: 400;
+  color: #ffffff;
+  margin-top: 0.5rem;
+  line-height: 1.6;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+}
+
+:host ::ng-deep .colored-card:hover {
+  transform: scale(1.03);
+  box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+}
+
+:host ::ng-deep .heating {
+  background: linear-gradient(135deg, #ef5350, #b71c1c);
+}
+
+:host ::ng-deep .sanitation {
+  background: linear-gradient(135deg, #42a5f5, #1565c0);
+}
+
+:host ::ng-deep .climate {
+  background: linear-gradient(135deg, #4db6ac, #00695c);
+}
+
+
+/* === VORTEILE SECTION === */
+:host ::ng-deep .vorteile-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2.5rem;
+  align-items: center;
+  justify-content: center;
+}
+
+:host ::ng-deep .vorteil-text {
+  max-width: 500px;
+}
+
+:host ::ng-deep .vorteil-text h2 {
+  font-size: 2rem;
+  color: var(--text-dark);
+  margin-bottom: 1rem;
+}
+
+:host ::ng-deep .vorteil-text ul {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: #333;
+  list-style: none;
+  padding-left: 0;
+}
+
+:host ::ng-deep .vorteil-text li::before {
+  content: "✔";
+  color: #00796b;
+  margin-right: 0.5rem;
+}
+
+:host ::ng-deep .vorteil-image {
+  max-width: 400px;
+  border-radius: 16px;
+  box-shadow: var(--hover-shadow);
+}

@@ -1,0 +1,17 @@
+<nav class="navbar">
+  <div class="navbar-container">
+    <!-- Logo ohne Text -->
+    <a routerLink="/" class="navbar-logo">
+      <img src="/assets/logo-with-txt.png" alt="V. Kortschak Logo" />
+    </a>
+
+    <!-- Navigation -->
+    <ul class="navbar-links">
+      <li><a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a></li>
+      <li><a routerLink="/ueber-uns" routerLinkActive="active">Über uns</a></li>
+      <li><a routerLink="/leistungen" routerLinkActive="active">Leistungen</a></li>
+      <li><a routerLink="/referenzen" routerLinkActive="active">Referenzen</a></li>
+      <li><a routerLink="/kontakt" routerLinkActive="active">Kontakt</a></li>
+    </ul>
+  </div>
+</nav>

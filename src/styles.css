@@ -1,0 +1,193 @@
+/* === Farben & Grundlagen === */
+:root {
+  --primary-color: #007acc;
+  --secondary-color: #00acc1;
+  --text-dark: #0d2d4f;
+  --text-light: #ffffff;
+  --text-medium: #444;
+  --bg-light: #f2f8fd;
+  --bg-white: #ffffff;
+  --card-radius: 12px;
+  --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  --hover-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  --transition: all 0.3s ease;
+  --input-border: #ccc;
+}
+
+/* === Buttons === */
+button,
+.p-button,
+.p-button-secondary {
+  font-size: 1.1rem;
+  font-weight: 600;
+  padding: 0.8rem 1.6rem;
+  border-radius: 30px;
+  border: none;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.p-button-secondary {
+  background-color: var(--secondary-color);
+  color: white;
+  box-shadow: var(--shadow);
+}
+
+.p-button-secondary:hover {
+  background-color: #00838f;
+  box-shadow: var(--hover-shadow);
+}
+
+.p-button-success {
+  background-color: #388e3c;
+  color: white;
+}
+
+.p-button-success:hover {
+  background-color: #2e7d32;
+}
+
+/* === Überschriften === */
+h1, h2 {
+  color: var(--text-dark);
+  font-weight: bold;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+h3 {
+  color: var(--text-dark);
+  margin-bottom: 0.5rem;
+}
+
+/* === Text Standard === */
+p {
+  color: var(--text-medium);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* === Container / Abstand === */
+.section-container {
+  padding: 4rem 2rem;
+  max-width: 1200px;
+  margin: auto;
+}
+
+/* === Kartenbasis === */
+.card {
+  border-radius: var(--card-radius);
+  box-shadow: var(--shadow);
+  background-color: var(--bg-white);
+  padding: 1.5rem;
+  transition: var(--transition);
+}
+
+.card:hover {
+  transform: scale(1.02);
+  box-shadow: var(--hover-shadow);
+}
+
+/* === Formulare === */
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-control {
+  padding: 0.8rem 1rem;
+  border: 1px solid var(--input-border);
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: border-color 0.2s ease;
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: var(--primary-color);
+}
+
+/* === Grid-Layouts === */
+.about-content,
+.contact-grid,
+.references-grid,
+.service-list,
+.vorteile-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.about-text,
+.contact-info,
+.contact-form {
+  flex: 1 1 400px;
+}
+
+.about-image,
+.vorteil-image {
+  max-width: 400px;
+  border-radius: var(--card-radius);
+  box-shadow: var(--hover-shadow);
+}
+
+/* === Referenzkarten & Servicekarten === */
+.ref-card,
+.service-card {
+  background-color: white;
+  border-radius: var(--card-radius);
+  box-shadow: var(--shadow);
+  padding: 1.5rem;
+  max-width: 350px;
+  flex: 1 1 300px;
+  transition: var(--transition);
+}
+
+.ref-card:hover,
+.service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--hover-shadow);
+}
+
+/* === Intro-Text === */
+.intro-text {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 2rem auto;
+  font-size: 1.1rem;
+  color: var(--text-medium);
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  font-size: 1rem;
+  border: 1px solid var(--input-border);
+  border-radius: 8px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.05);
+  background-color: white;
+}
+
+input:focus,
+textarea:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(0, 122, 204, 0.2);
+  outline: none;
+}
+
+/* === PrimeNG Dialog Fix === */
+body .p-dialog {
+  z-index: 1300 !important;
+  position: fixed !important;
+}
