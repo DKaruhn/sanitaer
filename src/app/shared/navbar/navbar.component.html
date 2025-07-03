@@ -1,4 +1,3 @@
-<!-- responsive-navbar.component.html -->
 <nav class="navbar">
   <div class="navbar-container">
     <!-- Logo -->
@@ -8,11 +7,11 @@
 
     <!-- Desktop-Navigation -->
     <ul class="navbar-links desktop-only">
-      <li><a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Home</a></li>
-      <li><a routerLink="/ueber-uns" routerLinkActive="active">Über uns</a></li>
-      <li><a routerLink="/leistungen" routerLinkActive="active">Leistungen</a></li>
-      <li><a routerLink="/referenzen" routerLinkActive="active">Referenzen</a></li>
-      <li><a routerLink="/kontakt" routerLinkActive="active">Kontakt</a></li>
+      <li><a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }"><i class="pi pi-home"></i> Home</a></li>
+      <li><a routerLink="/ueber-uns" routerLinkActive="active"><i class="pi pi-users"></i> Über uns</a></li>
+      <li><a routerLink="/leistungen" routerLinkActive="active"><i class="pi pi-cog"></i> Leistungen</a></li>
+      <li><a routerLink="/referenzen" routerLinkActive="active"><i class="pi pi-images"></i> Referenzen</a></li>
+      <li><a routerLink="/kontakt" routerLinkActive="active"><i class="pi pi-envelope"></i> Kontakt</a></li>
     </ul>
 
     <!-- Mobile Toggle Button -->
@@ -23,10 +22,10 @@
 
   <!-- Mobile Menü -->
   <ul class="mobile-menu" *ngIf="menuOpen">
-    <li><a routerLink="/" (click)="menuOpen = false">Home</a></li>
-    <li><a routerLink="/ueber-uns" (click)="menuOpen = false">Über uns</a></li>
-    <li><a routerLink="/leistungen" (click)="menuOpen = false">Leistungen</a></li>
-    <li><a routerLink="/referenzen" (click)="menuOpen = false">Referenzen</a></li>
-    <li><a routerLink="/kontakt" (click)="menuOpen = false">Kontakt</a></li>
+    <li><a routerLink="/" (click)="menuOpen = false"><i class="pi pi-home"></i> Home</a></li>
+    <li><a routerLink="/ueber-uns" (click)="menuOpen = false"><i class="pi pi-users"></i> Über uns</a></li>
+    <li><a routerLink="/leistungen" (click)="menuOpen = false"><i class="pi pi-cog"></i> Leistungen</a></li>
+    <li><a routerLink="/referenzen" (click)="menuOpen = false"><i class="pi pi-images"></i> Referenzen</a></li>
+    <li><a routerLink="/kontakt" (click)="menuOpen = false"><i class="pi pi-envelope"></i> Kontakt</a></li>
   </ul>
 </nav>

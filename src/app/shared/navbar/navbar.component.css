@@ -2,15 +2,18 @@
   display: block;
 }
 
+/* === NAVBAR === */
 .navbar {
-  background-color: var(--primary-color);
+  background: linear-gradient(90deg, #004e92, #0077cc);
   padding: 1rem 2rem;
-  box-shadow: var(--shadow);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   position: sticky;
   top: 0;
   z-index: 1000;
+  backdrop-filter: blur(6px);
 }
 
+/* === CONTAINER === */
 .navbar-container {
   display: flex;
   justify-content: space-between;
@@ -28,41 +31,72 @@
 }
 
 .navbar-logo img {
-  height: 140px;
+  height: 110px;
   width: auto;
-  filter: drop-shadow(0px 0px 12px rgba(255, 255, 255, 0.2));
+  filter: drop-shadow(0 0 12px rgba(255, 255, 255, 0.3));
 }
 
 /* === DESKTOP NAVIGATION === */
 .navbar-links {
   display: flex;
-  gap: 2rem;
+  gap: 2.5rem;
   list-style: none;
   margin: 0;
   padding: 0;
 }
 
 .navbar-links a {
-  color: white;
+  color: #ffffff;
   text-decoration: none;
-  font-weight: 600;
-  font-size: 1.1rem;
+  font-weight: 700;
+  font-size: 1.25rem;
+  padding: 0.5rem 0.8rem;
+  border-radius: 8px;
+  position: relative;
+  transition: all 0.3s ease;
+  text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .navbar-links a:hover,
 .navbar-links .active {
-  color: var(--secondary-color);
+  color: #ffe082;
+  background: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 2px 8px rgba(255, 255, 255, 0.2);
+  text-shadow: 0 0 6px rgba(255, 235, 130, 0.6);
 }
 
-/* === MOBILE TOGGLE === */
+/* === UNTERSTREICHUNG === */
+.navbar-links a::after {
+  content: "";
+  display: block;
+  width: 0%;
+  height: 3px;
+  background: var(--secondary-color);
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+  transition: width 0.3s ease-in-out;
+  border-radius: 4px;
+}
+
+.navbar-links a:hover::after,
+.navbar-links .active::after {
+  width: 100%;
+}
+
+/* === MOBILE TOGGLE BUTTON === */
 .mobile-toggle {
   display: none;
   background: none;
   border: none;
   color: white;
-  font-size: 1.8rem;
-  margin-left: auto;
+  font-size: 2rem;
   z-index: 999;
+  margin-left: auto;
 }
 
 /* === MOBILE MENU === */
@@ -70,21 +104,34 @@
   list-style: none;
   padding: 0;
   margin: 0;
-  background-color: var(--primary-color);
+  background: linear-gradient(180deg, #0077cc, #005b9f);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
 }
 
 .mobile-menu li {
   padding: 1rem;
   border-top: 1px solid rgba(255, 255, 255, 0.1);
+  text-align: center;
 }
 
 .mobile-menu a {
   color: white;
   text-decoration: none;
-  font-weight: 500;
+  font-weight: 600;
+  font-size: 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  transition: color 0.2s ease;
 }
 
-/* === RESPONSIVE BREAKPOINTS === */
+.mobile-menu a:hover {
+  color: #ffe082;
+  text-shadow: 0px 0px 6px rgba(255, 235, 130, 0.5);
+}
+
+/* === RESPONSIVE === */
 @media (max-width: 768px) {
   .desktop-only {
     display: none;
@@ -94,11 +141,16 @@
     display: block;
   }
 
+  .navbar-logo img {
+    height: 90px;
+  }
+
   .navbar-container {
     flex-wrap: nowrap;
   }
-
-  .navbar-logo img {
-    height: 100px;
-  }
 }
+.navbar-logo img:hover {
+  transform: scale(1.025);
+  transition: transform 0.8s ease;
+}
+

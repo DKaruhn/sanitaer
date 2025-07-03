@@ -107,8 +107,8 @@
 :host ::ng-deep .colored-card {
   color: #ffffff;
   border: none;
-  width: 320px;
-  min-height: 220px;
+  width: 300px;
+  height: 260px;
   padding: 1.5rem;
   font-size: 1.1rem;
   box-shadow: var(--shadow);
@@ -393,6 +393,14 @@
   :host ::ng-deep .checkbox-grid {
     grid-template-columns: 1fr !important;
     gap: 0.8rem !important;
+  }
+
+  @media (max-width: 768px) {
+    :host ::ng-deep .colored-card {
+      width: 100%;
+      max-width: 360px;
+      height: auto;
+    }
   }
 
   :host ::ng-deep .checkbox-grid label {
